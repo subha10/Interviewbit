@@ -1,0 +1,29 @@
+public class Solution {
+    public int maxSpecialProduct(ArrayList<Integer> a) {
+        int n=a.size();
+        if(n==1||n==2)
+        return 0;
+        ArrayList <Integer> al=new ArrayList<>();
+        for(int i=1;i<n-1;i++){
+            int x=0;
+            for(int j=0;j<i;j++){
+                if(a.get(j)>a.get(i)){
+                    x=j;
+                }
+            }
+            int y=0;
+             for(int j=i+1;j<n;j++){
+                if(a.get(j)>a.get(i)){
+                    y=j;
+                break;
+                    
+                }
+            }
+            int mult=((x%1000000007)*(y%1000000007))%1000000007;
+            al.add(mult);
+            
+        }
+        return Collections.max(al);
+        
+    }
+}
