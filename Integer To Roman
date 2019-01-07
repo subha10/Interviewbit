@@ -1,0 +1,83 @@
+
+    public String intToRoman(int a) {
+        StringBuffer s=new StringBuffer();
+        while(a!=0){
+            if(a>=1000){
+                int x=a/1000;
+                for(int i=0;i<x;i++)
+                s.append('M');
+                a=a%1000;
+            }
+            else if(a>=500){
+                if(a<900){
+                
+                s.append('D');
+                a=a%500;
+                }
+                else{
+                    s.append("CM");
+                    a=a%900;
+                }
+            }
+            else if(a>=100){
+                if(a<400){
+                    for(int i=0;i<a/100;i++)
+                    s.append('C');
+                    a=a%100;
+                }
+                else{
+                    s.append("CD");
+                    a=a%400;
+                }
+                
+            }
+            else if(a>=50){
+                if(a<90){
+                    s.append('L');
+                    a=a%50;
+                }
+                else{
+                    s.append("XC");
+                    a=a%90;
+                }
+            }
+            else if(a>=10){
+                if(a<40){
+                    int x=a/10;
+                    for(int i=0;i<x;i++)
+                    s.append('X');
+                    a=a%10;
+                }
+                else{
+                    s.append("XL");
+                    a=a%40;
+                }
+            }
+            else if(a>=5){
+                if(a<9){
+                    s.append('V');
+                    a=a%5;
+                }
+                else{
+                    s.append("IX");
+                    a=0;;
+                }
+            }
+            else{
+                if(a<4){
+                for(int i=0;i<a;i++){
+                    s.append('I');
+                    
+                }
+                a=0;
+                }
+                else{
+                    s.append("IV");
+                    a=0;
+                }
+                
+            }
+        }
+        String str=s.toString();
+        return str;
+    }
